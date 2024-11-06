@@ -10,9 +10,9 @@ from unittest.mock import patch, Mock
 class UnitTesting(unittest.TestCase):
 
     @patch('builtins.input')
-    def test_welcome(self, mocked_input):
+    def test_namePlayers(self, mocked_input):
         mocked_input.side_effect = ["John", "Jane"]
-        results = welcome(["",""])
+        results = Connect4()._namePlayers(["",""])
         self.assertEqual(results, ["John", "Jane"])
 
 
