@@ -15,6 +15,10 @@ class UnitTesting(unittest.TestCase):
         results = Connect4()._namePlayers(["",""])
         self.assertEqual(results, ["John", "Jane"])
 
+    def _createEmptyBoard(self):                    # TODO: Testcases would increaes if custom dimensions are added
+        newGame = Connect4()        
+        emptyBoard7x6 = [[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0],[0,0,0,0,0,0]]
+        self.assertEqual(Connect4._createEmptyBoard, emptyBoard7x6)     # Default game dimensions are 7x6
 
 if __name__ == "__main__":
     unittest.main()
