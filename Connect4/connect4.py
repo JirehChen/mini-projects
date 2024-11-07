@@ -12,23 +12,30 @@ class Connect4():
     def play(self):
         self._setUpGame()
         self._runGame()
-        return 
 
     def _setUpGame(self):
         self._welcome()
         self._namePlayers()
         self._gameBoard = GameBoard(self._gameDimensions.get('rows'), self._gameDimensions.get('cols') )                                
-        return
     
     def _runGame(self):
+
+        ## Prompts the currentPlayer to select their move
+        def promptForMove():
+            return
+
+        ## Ends the game according the the current player and the result they achieved (Win/Draw/Terminated))
+        def endGame(result, player):
+            pass        
+        
         currentPlayer = 1                           # TODO: Can be upgraded... ENUM? or New class.. Overkill?
         currentPlayerMove = None
-        print("Player 1 - {nameOfPlayer[1]} - starts")
+        print("Player 1 - {} - starts".format(self._nameOfPlayer[1]))
 
         gameInProgress = True
         while gameInProgress:
             
-            self._gameBoard.display()
+            (self._gameBoard).display()
             
             currentPlayerMove = promptForMove()
             
@@ -40,18 +47,10 @@ class Connect4():
                 currentPlayer = currentPlayer%2+1           # TODO: Not the most efficient? 
 
             gameInProgress = False                  #TODO: Temporary infinite loop prevention - to be removed once preceding functions are implemented
-            
-
-        ## Prompts the currentPlayer to select their move
-        def promptForMove():
-            pass
-
-        ## Ends the game according the the current player and the result they achieved (Win/Draw/Terminated))
-        def endGame(result, player):
-            pass        
+        
 
 
-    def _welcome():
+    def _welcome(self):
         print("Welcome to a new game of Connect 4 for two players/n/n")
     
     def _namePlayers(self):

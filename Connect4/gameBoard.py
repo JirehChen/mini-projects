@@ -9,13 +9,13 @@ class GameBoard():
         self._cols = cols
         
         # Automatically generates in grid, an empty board with the specified dimensions (or 6x7 by default)
-        for _ in cols:
+        for _ in range(cols):
             self._grid += [[0]*rows]
     
     ## Outputs a visual representation of the current gameBoard state
-    def display():
+    def display(self):
         pass
 
     ## Processes the player's on the game board
-    def update():
+    def update(self, move):
         pass
