@@ -1,6 +1,4 @@
 
-
-
 class GameBoard():
     _rows = 6
     _cols = 7
