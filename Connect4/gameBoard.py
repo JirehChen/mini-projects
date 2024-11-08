@@ -1,6 +1,6 @@
 '''
 Connect4 Gamebaord Class for generating, viewing, updating and analysing the game board
-Jireh 7th Nov 2024
+Jireh CHen, 7th Nov 2024
 '''
 
 

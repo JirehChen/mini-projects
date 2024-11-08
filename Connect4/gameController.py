@@ -1,25 +1,26 @@
 '''
 Connect4 GameController class that is responsible for the game playing process
+Jireh Chen, 8th Nov 2024
 '''
 from gameBoard import GameBoard
 
 class GameController:
-    _gameBoard = None
-    _playerNames = None
-
-    def __init__(self, gameBoard, playerNames):
-        self._gameBoard = gameBoard    
+     
+    def __init__(self, playerNames, gameRows=6, gameCols=7):
+        self._gameRows = gameRows
+        self._gameCols = gameCols
+        self._gameBoard = GameBoard(self._gameRows, self._gameCols)
         self._playerNames = playerNames
 
     def run(self):
         currentPlayer = 1                           # TODO: Can be upgraded... ENUM? or New class.. Overkill?
         currentPlayerMove = None
-        print("Player 1 - {} - starts".format(self._playerNames[1]))
+        print("Player 1 [{}] starts".format(self._playerNames[1]))
 
         gameInProgress = True
         while gameInProgress:
             
-            (self._gameBoard).display()
+            self._gameBoard.display()
             
             currentPlayerMove = self._promptForMove()
             
