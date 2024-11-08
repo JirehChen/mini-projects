@@ -14,8 +14,7 @@ class GameController:
 
     def run(self):
         currentPlayer = 1                           # TODO: Can be upgraded... ENUM? or New class.. Overkill?
-        currentPlayerMove = None
-        print("Player 1 [{}] starts".format(self._playerNames[1]))
+        print(f"\nPlayer 1 [{self._playerNames[1]}] starts\n")
 
         gameInProgress = True
         while gameInProgress:

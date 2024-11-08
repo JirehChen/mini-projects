@@ -7,9 +7,9 @@ from gameController import GameController
 class Connect4():
     
     def __init__(self):
-        _playerNames = {1:'Player 1', 2:'Player 2'}    
-        _gameDimensions = {'rows': 6, 'cols': 7}
-        _gameController = None
+        self._playerNames = {1:'Player 1', 2:'Player 2'}    
+        self._gameDimensions = {'rows': 6, 'cols': 7}
+        self._gameController = None
 
     def play(self):
         self._setUpGame()
