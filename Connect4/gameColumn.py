@@ -36,11 +36,11 @@ class GameColumn():
         # Update target cell
         cell = self.cells[self.nextCell]
         cell.value = marker
-        gameResult = cell.updateConnectionCounts()
+        moveResult = cell.updateConnectionCounts()
 
         self.nextCell += 1
 
-        return gameResult
+        return moveResult
 
 
     def isFull(self):

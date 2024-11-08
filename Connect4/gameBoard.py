@@ -18,15 +18,17 @@ class GameBoard():
     ## Updates the game board with the player's move
     def update(self, move, marker):
 
-        # Verify input
         if move not in self.validMoves():
             raise ValueError(f"Invalid move of [{move}] received")
         
         # Add move to gameBoard
         columnIndex = ord(move) - ord('A')
-        gameResult = self._grid[columnIndex].addMove(marker)
-        
-        # Check result
+        moveResult = self._grid[columnIndex].addMove(marker)
+
+        if moveResult is None and self.validMoves == []:
+            moveResult = "Draw"
+
+        return moveResult
         
 
     ## Links cells in the gameboard to their adjacent cells
@@ -91,12 +93,13 @@ class GameBoard():
 
         contentList.append(_gridLine())
         
-        for r in range(self._rows):
+        # Ranged is reversed, as row 0 appears at the bottom of the game board
+        for r in reversed(range(self._rows)):
 
             # e.g. "|  1  |  2  |  1  |  1  |     |     |     |"
-            rowContent = [self._grid[c].rep(r) for c in range(self._cols)]
+            rowContent = [str(self._grid[c].rep(r)) for c in range(self._cols)]
             contentList.append("|  " + "  |  ".join(rowContent) + "  |")
 
             contentList.append(_gridLine())
 
-        print("\n".join(contentList))
+        print("\n\n" + "\n".join(contentList))

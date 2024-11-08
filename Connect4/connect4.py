@@ -20,7 +20,7 @@ class Connect4():
         self._gameController = GameController(self._playerNames)                      
     
     def _welcome(self):
-        print("Welcome to a new game of Connect 4 for two players\n")
+        print("\nWelcome to a new game of Connect 4 for two players\n")
     
     def _namePlayers(self):
         self._playerNames[1] = str(input("Please name player 1: "))

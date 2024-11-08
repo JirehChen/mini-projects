@@ -47,15 +47,16 @@ class GameCell():
             eastCount = eastCell.connections["horizontal"] if eastCell is not None and eastCell.value == self.value else 0
             westCount = westCell.connections["horizontal"] if westCell is not None and westCell.value == self.value else 0
             
-            self.connections["horizontal"] = westCount + 1 + eastCount
+            horizontalConnections = westCount + 1 + eastCount
+            self.connections["horizontal"] = horizontalConnections
 
             for _ in range(eastCount):
-                eastCell.connectionCounts["horizontal"] += westCount + 1
+                eastCell.connections["horizontal"] = horizontalConnections
                 if not eastCell.neighbours["eastCell"] == None:
                     eastCell = eastCell.neighbours["eastCell"]
 
             for _ in range(westCount):
-                westCell.connectionCounts["horizontal"] += eastCount + 1
+                westCell.connections["horizontal"] = horizontalConnections
                 if not westCell.neighbours["eastCell"] == None:
                     westCell = westCell.neighbours["eastCell"]
 
@@ -66,17 +67,19 @@ class GameCell():
             northEastCount = northEastCell.connections["forwardDiagonal"] if northEastCell is not None and northEastCell.value == self.value else 0
             southWestCount = southWestCell.connections["forwardDiagonal"] if southWestCell is not None and southWestCell.value == self.value else 0
             
-            self.connections["forwardDiagonal"] = southWestCount + 1 + northEastCount
+            forwardDiagonalConnections = southWestCount + 1 + northEastCount
+            self.connections["forwardDiagonal"] = forwardDiagonalConnections
 
             for _ in range(northEastCount):
-                northEastCell.connectionCounts["forwardDiagonal"] += southWestCount + 1
+                northEastCell.connections["forwardDiagonal"] = forwardDiagonalConnections
                 if not northEastCell.neighbours["eastCell"] == None:
                     northEastCell = northEastCell.neighbours["eastCell"]
 
             for _ in range(southWestCount):
-                southWestCell.connectionCounts["forwardDiagonal"] += northEastCount + 1
+                southWestCell.connections["forwardDiagonal"] = forwardDiagonalConnections
                 if not southWestCell.neighbours["eastCell"] == None:
                     southWestCell = southWestCell.neighbours["eastCell"]
+
 
 
         def updateBackwardDiagonalConnections():
@@ -85,17 +88,19 @@ class GameCell():
             northWestCount = northWestCell.connections["backwardDiagonal"] if northWestCell is not None and northWestCell.value == self.value else 0
             southEastCount = southEastCell.connections["backwardDiagonal"] if southEastCell is not None and southEastCell.value == self.value else 0
             
-            self.connections["backwardDiagonal"] = southEastCount + 1 + northWestCount
+            backwardDiagonalConnections = southEastCount + 1 + northWestCount
+            self.connections["backwardDiagonal"] = backwardDiagonalConnections
 
             for _ in range(northWestCount):
-                northWestCell.connectionCounts["backwardDiagonal"] += southEastCount + 1
+                northWestCell.connections["backwardDiagonal"] = backwardDiagonalConnections
                 if not northWestCell.neighbours["eastCell"] == None:
                     northWestCell = northWestCell.neighbours["eastCell"]
 
             for _ in range(southEastCount):
-                southEastCell.connectionCounts["backwardDiagonal"] += northWestCount + 1
+                southEastCell.connections["backwardDiagonal"] = backwardDiagonalConnections
                 if not southEastCell.neighbours["eastCell"] == None:
                     southEastCell = southEastCell.neighbours["eastCell"]
+            
 
 
         # Update connections using above functions
@@ -110,4 +115,5 @@ class GameCell():
 
         for connectionCount in self.connections.values():
             if connectionCount >= 4:
+                print(f"Won with connection count {connectionCount}")
                 return "Win"
