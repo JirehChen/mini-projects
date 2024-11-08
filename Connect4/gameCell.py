@@ -8,27 +8,25 @@ Jireh Chen, 8th Nov 2024
 class GameCell():
 
     def __init__(self):
-        self.connectionCounts = ConnectionCounts()
-        self.neighbouringCells = NeighbouringCells()
+        self.connectionCounts = {
+            'verticalCount': 1,
+            'horizontalCount': 1,
+            'forwardDiagonalCount': 1,
+            'backDiagonal': 1,
+
+        }
+        self.neighbouringCells = {
+            'northCell': None, 
+            'northEastCell': None, 
+            'eastCell': None, 
+            'southEastCell': None, 
+            'southCell': None, 
+            'southWestCell': None, 
+            'westCell': None, 
+            'northWestCell': None, 
+        }
         self.value = 0                                           ## Could upgrade with enum? 
 
+    def updateConnections(self):
 
-
-class ConnectionCounts():
-    def __init__(self):
-        self.verticalCount = 1
-        self.horizontalCount = 1
-        self.rightDiagonalCount = 1
-        self.leftDiagonalCount = 1
-
-
-class NeighbouringCells():
-    def __init__(self):
-        self.northCell = None
-        self.northEastCell = None
-        self.eastCell = None
-        self.southEastCell = None
-        self.southCell = None
-        self.southWestCell = None
-        self.westCell = None
-        self.northWestCell = None
+        pass
