@@ -40,6 +40,10 @@ class GameBoard():
             contentList.append(self._gridLine())
         print("\n".join(contentList))
 
+    ## Returns all non-full columns as their letter representations.                TODO: Can be improved
+    def validMoves(self):
+        return [chr(ord('A') + c) for c in range(self._cols) if not self._grid[c].isFull]
+
     ## Visual string representation of gameboard column (letter) labels         e.g."   A     B     C     D     E     F     G   "
     def _columnLetters(self):
         columnLetters = [chr(ord('A') + c) for c in range(self._cols)]
