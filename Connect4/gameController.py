@@ -39,13 +39,13 @@ class GameController:
         if self._gameBoard.validMoves() == []:
             raise ValueError("Incorrect game state, no moves possible.")
         
-        move = input("Please select a column to drop your token: ")
+        move = str(input("Please select a column to drop your token: "))
         while True:
             if move in self._gameBoard.validMoves():
                 return move 
             else:
                 print(f"Invalid selection, please choose one of {self._gameBoard.validMoves()}")
-                move = input("In which column would you like to drop your token? ")
+                move = str(input("In which column would you like to drop your token? "))
 
 
     ## Ends the game according the the current player and the result they achieved (Win/Draw/Terminated))
