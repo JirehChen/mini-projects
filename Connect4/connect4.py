@@ -8,7 +8,6 @@ class Connect4():
     
     def __init__(self):
         self._playerNames = {1:'Player 1', 2:'Player 2'}    
-        self._gameDimensions = {'rows': 6, 'cols': 7}
         self._gameController = None
 
     def play(self):
@@ -18,7 +17,7 @@ class Connect4():
     def _setUpGame(self):
         self._welcome()
         self._namePlayers()
-        self._gameController = GameController(self._playerNames, self._gameDimensions.get('rows'), self._gameDimensions.get('cols'))                      
+        self._gameController = GameController(self._playerNames)                      
     
     def _welcome(self):
         print("Welcome to a new game of Connect 4 for two players\n")

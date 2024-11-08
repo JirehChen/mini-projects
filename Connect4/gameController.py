@@ -23,7 +23,7 @@ class GameController:
             
             currentPlayerMove = self._promptForMove()
             
-            moveResult = self._gameBoard.update(currentPlayerMove)
+            moveResult = self._gameBoard.update(currentPlayerMove, self._currentPlayer)
 
             if moveResult != None:
                 self._endGame(moveResult, self._currentPlayer)
