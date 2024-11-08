@@ -1,3 +1,8 @@
+'''
+Connect4 Gamebaord Class for generating, viewing, updating and analysing the game board
+Jireh 7th Nov 2024
+'''
+
 
 class GameBoard():
     _rows = 6
