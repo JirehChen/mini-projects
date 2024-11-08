@@ -24,10 +24,10 @@ class GameBoard():
         
         # Add move to gameBoard
         columnIndex = ord(move) - ord('A')
-        self._grid[columnIndex].addMove(marker)
+        gameResult = self._grid[columnIndex].addMove(marker)
         
         # Check result
-
+        
 
     ## Links cells in the gameboard to their adjacent cells
     def linkCells(self):
@@ -36,28 +36,28 @@ class GameBoard():
                 cell = self._grid[colIndex].cells[rowIndex]
 
                 if rowIndex+1 < self._rows:
-                    cell.neighbouringCells["northCell"] = self._grid[colIndex].cells[rowIndex+1]
+                    cell.neighbours["northCell"] = self._grid[colIndex].cells[rowIndex+1]
                     
                     if colIndex+1 < self._cols:
-                        cell.neighbouringCells["northEastCell"] = self._grid[colIndex+1].cells[rowIndex+1]
+                        cell.neighbours["northEastCell"] = self._grid[colIndex+1].cells[rowIndex+1]
 
                 if colIndex+1 < self._cols:
-                    cell.neighbouringCells["eastCell"] = self._grid[colIndex+1].cells[rowIndex]
+                    cell.neighbours["eastCell"] = self._grid[colIndex+1].cells[rowIndex]
                     
                     if rowIndex-1 >= 0:
-                        cell.neighbouringCells["southEastCell"] = self._grid[colIndex+1].cells[rowIndex-1]
+                        cell.neighbours["southEastCell"] = self._grid[colIndex+1].cells[rowIndex-1]
                 
                 if rowIndex-1 >= 0:
-                    cell.neighbouringCells["southCell"] = self._grid[colIndex].cells[rowIndex-1]
+                    cell.neighbours["southCell"] = self._grid[colIndex].cells[rowIndex-1]
                     
                     if colIndex-1 >= 0:
-                        cell.neighbouringCells["southWestCell"] = self._grid[colIndex-1].cells[rowIndex-1]
+                        cell.neighbours["southWestCell"] = self._grid[colIndex-1].cells[rowIndex-1]
 
                 if colIndex-1 >= 0:
-                    cell.neighbouringCells["westCell"] = self._grid[colIndex-1].cells[rowIndex]
+                    cell.neighbours["westCell"] = self._grid[colIndex-1].cells[rowIndex]
                     
                     if rowIndex+1 < self._rows:
-                        cell.neighbouringCells["northWestCell"] = self._grid[colIndex-1].cells[rowIndex+1]
+                        cell.neighbours["northWestCell"] = self._grid[colIndex-1].cells[rowIndex+1]
 
 
     ## Returns all non-full columns as their letter representations.                TODO: Can be greatly improved

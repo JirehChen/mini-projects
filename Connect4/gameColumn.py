@@ -33,10 +33,15 @@ class GameColumn():
         if self.isFull():
             raise ValueError("No moves available in column")
 
+        # Update target cell
         cell = self.cells[self.nextCell]
         cell.value = marker
-        cell.updateConnections()
+        gameResult = cell.updateConnectionCounts()
+
         self.nextCell += 1
+
+        return gameResult
+
 
     def isFull(self):
         if self.nextCell == self._cellLimit:
